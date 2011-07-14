@@ -15,6 +15,7 @@
     <context:annotation-config />
 
 
+	<!-- expects mongo database url in this format: mongodb://user:passwd@localhost:27017/test -->
     <bean id="mongo" class="com.mongodb.Mongo">
        <constructor-arg value="#{systemEnvironment['MONGOHQ_URL'].replaceAll('mongodb://(.*):(.*)@(.*):(.*)/(.*)', '$3')}"/>
        <constructor-arg value="#{systemEnvironment['MONGOHQ_URL'].replaceAll('mongodb://(.*):(.*)@(.*):(.*)/(.*)', '$4')}"/>
