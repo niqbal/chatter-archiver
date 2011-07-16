@@ -26,6 +26,7 @@
 	    
 	    <security:custom-filter position="FORM_LOGIN_FILTER" ref="authenticationFilter"/>
 	    <security:custom-filter position="LOGOUT_FILTER" ref="logoutFilter"/>
+
 	</security:http>
 
 </beans>

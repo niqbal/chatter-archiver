@@ -38,8 +38,38 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <welcome-file-list>
+            <welcome-file>hello.jsp</welcome-file>
+    </welcome-file-list>
 
-        <welcome-file-list>
-                <welcome-file>hello.jsp</welcome-file>
-        </welcome-file-list>
+
+    <security-constraint>
+        <display-name>authorizedUsers</display-name>
+        <web-resource-collection>
+            <web-resource-name>ALL URLs</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>publicAccess</display-name>
+        <web-resource-collection>
+            <web-resource-name>Public pages</web-resource-name>
+            <url-pattern>/public/*</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>jrealm</realm-name>
+    </login-config>
+
+    <security-role>
+        <description>administrator access</description>
+        <role-name>ADMIN</role-name>
+    </security-role>
+
 </web-app>
